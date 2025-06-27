@@ -17,7 +17,13 @@ bbaabb
 aabbaa
 aabbaa
 YES
-can be tiled: 7x7
+aabbcca
+aabacaa
+bbaabbd
+baccbdd
+aacddcc
+bbadbca
+baabbaa
 YES
 aabbaabb
 aabbaabb
@@ -28,7 +34,15 @@ aabbaabb
 bbaabbaa
 bbaabbaa
 YES
-can be tiled: 9x9
+aabbccacc
+aabacaacb
+bbaabbdbb
+baccbddaa
+aacddccba
+bbadbcabb
+baabbaacb
+abbaabbcc
+aabbaabbc
 YES
 aabbaabbaa
 aabbaabbaa

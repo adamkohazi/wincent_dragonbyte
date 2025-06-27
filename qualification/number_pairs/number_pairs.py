@@ -3,8 +3,6 @@ import os
 MAXDIGITS = 6
 MAXNUMBER = 10**MAXDIGITS
 
-
-
 # Function to calculate the digit sum of a number
 def digit_sum(n):
     return sum(int(d) for d in str(n))
@@ -16,8 +14,6 @@ def find_pair_with_same_digit_sum(d):
         if digit_sum(a) == digit_sum(b):
             return a, b
     return None  # Return None if no such pair is found
-
-
 
 # Read input values
 current_folder = os.path.dirname(os.path.abspath(__file__))
