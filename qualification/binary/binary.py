@@ -26,10 +26,10 @@ def nth_root(x, n):
 
 def smallest_binary_base(n):
     # Special cases for small numbers
-    if n < 3:
-        return -1
-    if n == 3:
+    if n == 1 or n == 3:
         return 3
+    if n == 2:
+        return -1
     # Assume worst-case, base n-1 representation is always 11
     # Try to reduce by checking bases where a new digit appears in the representation
     lowest = n - 1
