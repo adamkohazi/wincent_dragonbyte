@@ -34,10 +34,10 @@ def generate_moves(case, color):
         if t == color:
             rook_positions.append((r, c))
 
-    moves = []  # Each move is ((from_row, from_col), (to_row, to_col))
+    moves = []  # Each move is ((from_row, from_col), (to_row, to_col), capture)
     enemy_color = 'B' if color == 'W' else 'W'
 
-    for r, c in rook_positions:
+    for index, (r, c) in enumerate(rook_positions):
         # Move Up
         for i in range(r - 1, -1, -1):
             if board[i][c] == '.':

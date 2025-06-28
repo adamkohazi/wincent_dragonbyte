@@ -29,27 +29,104 @@ def find_tiling(w, h):
     
     # Minimum cost tiling for 7x7
     if w==7 and h==7:
-        return '''aabbcca
-aabacaa
-bbaabbd
-baccbdd
-aacddcc
-bbadbca
+        return '''aabbabb
+aabaaba
+bbddcaa
+bacdccb
+aaccdbb
+bbabdda
 baabbaa'''
     
-    # Minimum cost tiling for 9x9
-    if w==9 and h==9:
-        return '''aabbccacc
-aabacaacb
-bbaabbdbb
-baccbddaa
-aacddccba
-bbadbcabb
-baabbaacb
-abbaabbcc
-aabbaabbc'''
+    # From here on, there's a pattern:
+    if w==h:
+        tiling = ''
+        for y in range(h):
+            if y==0:
+                tiling += 'aabbabb'
+                for x in range(7,w):
+                    if ((x-7)//2) % 2 == 0:
+                        tiling += 'd'
+                    else:
+                        tiling += 'b'
+            elif y==1:
+                tiling += 'aabaaba'
+                for x in range(7,w):
+                    if   (x-7) % 4 == 0:
+                        tiling += 'd'
+                    elif (x-7) % 4 == 1:
+                        tiling += 'c'
+                    elif (x-7) % 4 == 2:
+                        tiling += 'b'
+                    else:
+                        tiling += 'a'
+            elif y==2:
+                tiling += 'bbddcaa'
+                for x in range(7,w):
+                    if ((x-7)//2) % 2 == 0:
+                        tiling += 'c'
+                    else:
+                        tiling += 'a'
+            elif y==3:
+                tiling += 'bacdccb'
+                for x in range(7,w):
+                    if ((x-7)//2) % 2 == 0:
+                        tiling += 'd'
+                    else:
+                        tiling += 'b'
+            elif y==4:
+                tiling += 'aaccdbb'
+                for x in range(7,w):
+                    if ((x-7)//2) % 2 == 0:
+                        tiling += 'd'
+                    else:
+                        tiling += 'b'
+            elif y==5:
+                tiling += 'bbabdda'
+                for x in range(7,w):
+                    if ((x-7)//2) % 2 == 0:
+                        tiling += 'c'
+                    else:
+                        tiling += 'a'
+            elif y==6:
+                tiling += 'baabbaa'
+                for x in range(7,w):
+                    if ((x-7)//2) % 2 == 0:
+                        tiling += 'c'
+                    else:
+                        tiling += 'a'
 
-    return 'can be tiled: ' + str(w) + 'x' + str(h)
+            elif (y-7) % 4 == 0:
+                tiling += 'ddc'
+                for x in range(3,w):
+                    if ((x-3)//2) % 2 == 0:
+                        tiling += 'd'
+                    else:
+                        tiling += 'c'
+            elif (y-7) % 4 == 1:
+                tiling += 'd'
+                for x in range(1,w):
+                    if ((x-1)//2) % 2 == 0:
+                        tiling += 'c'
+                    else:
+                        tiling += 'd'
+            elif (y-7) % 4 == 2:
+                tiling += 'bba'
+                for x in range(3,w):
+                    if ((x-3)//2) % 2 == 0:
+                        tiling += 'b'
+                    else:
+                        tiling += 'a'
+            elif (y-7) % 4 == 3:
+                tiling += 'b'
+                for x in range(1,w):
+                    if ((x-1)//2) % 2 == 0:
+                        tiling += 'a'
+                    else:
+                        tiling += 'b'
+            if y < w-1:
+                tiling += '\n'
+        return tiling
+    print('error?')
 
 # Read input values
 current_folder = os.path.dirname(os.path.abspath(__file__))
